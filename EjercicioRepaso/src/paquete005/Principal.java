@@ -4,7 +4,11 @@
  */
 package paquete005;
 
+import java.util.ArrayList;
+import paquete001.Persona;
+import paquete002.Ciudad;
 import paquete003.BilleteraPagos;
+import paquete003.Pago;
 
 /**
  *
@@ -12,9 +16,29 @@ import paquete003.BilleteraPagos;
  */
 public class Principal {
     public static void main(String[] args) {
-        BilleteraPagos pago = new BilleteraPagos();
+        ArrayList<Pago> listaPagos = new ArrayList<> ;
         
         
+        
+        
+        
+            
+        
+        /*private String tipoPagoAguaPotable;
+    private double tarifaFija = 2.20;
+    private double metrosCubicosConsumo = 100.2;
+    private double costoConsumoCubicos = 0.2;
+
+    private double tarifaFija = 2.20;
+    private double metrosCubicosConsumo = 100.2;
+    private double costoConsumoCubicos = 0.2;*/
+        
+        Ciudad ciudad = new Ciudad("Loja");
+        Persona p = new Persona("Luis", "Vasquez", 18, "11500", ciudad );
+        BilleteraPagos pago = new BilleteraPagos(p,ciudad,listaPagos);
+        
+        
+
         
         
         

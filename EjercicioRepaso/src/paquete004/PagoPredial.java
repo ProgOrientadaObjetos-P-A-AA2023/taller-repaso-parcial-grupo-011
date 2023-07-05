@@ -6,18 +6,36 @@ package paquete004;
 
 import paquete001.Persona;
 import paquete002.Propiedad;
-import paquete003.BilleteraPagos;
+import paquete003.Pago;
 
 /**
  *
  * @author reroes
  */
-public class PagoPredial extends BilleteraPagos {
+public class PagoPredial extends Pago {
     
-    public double calcularPago(){
+    
+    @Override
+    public void calcularPago(){
         double valorPropiedad = 56000;
         double porcentaje = 10;
-        double pago = valorPropiedad - ((valorPropiedad*porcentaje)/100);
+        pago = valorPropiedad - ((valorPropiedad*porcentaje)/100);
+        
+    }
+    
+    @Override
+    public double obtenerPago() {
         return pago;
+    }
+    
+     @Override
+    public String toString() {
+
+        String mensaje = String.format("\tPredial\n"
+                + "Pago Predial: %.2f\n", 
+                obtenerPago());
+
+        return mensaje;
+        
     }
 }

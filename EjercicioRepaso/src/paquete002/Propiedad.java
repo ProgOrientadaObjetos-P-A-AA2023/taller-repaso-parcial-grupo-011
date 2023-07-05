@@ -9,5 +9,5 @@ package paquete002;
  * @author reroes
  */
 public class Propiedad {
-    public double costoPropiedad;
+    private double costoPropiedad;
 }

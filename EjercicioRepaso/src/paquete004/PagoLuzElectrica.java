@@ -5,16 +5,17 @@
 package paquete004;
 
 import paquete001.Persona;
-import paquete003.BilleteraPagos;
+import paquete003.Pago;
 
 /**
  *
  * @author reroes
  */
-public class PagoLuzElectrica extends BilleteraPagos {
+public class PagoLuzElectrica extends Pago {
 
-    public double calcularPago() {
-        double pago = 0;
+    
+    @Override
+    public void calcularPago() {
         double tarifaBase = 10.20;
         double kilovatiosConsumidos = 80;
         double costoKilovatio = 0.5;
@@ -25,6 +26,20 @@ public class PagoLuzElectrica extends BilleteraPagos {
             pago = tarifaBase + (kilovatiosConsumidos * costoKilovatio);
         }
 
+        
+    }
+    public double obtenerPago() {
         return pago;
+    }
+    
+    @Override
+    public String toString() {
+
+        String mensaje = String.format("\tLuz Electrica\n"
+                + "Pago LuzElectrica: %.2f\n", 
+                obtenerPago());
+
+        return mensaje;
+        
     }
 }
