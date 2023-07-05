@@ -39,10 +39,12 @@ public  class BilleteraPagos {
                 +"Lista de pagos: \n", 
                 persona,
                 ciudad);
+        double suma=0;
         
         for (int i = 0; i < listaPagos.size(); i++) {
-            
-            cadena= String.format("%s\n", listaPagos.get(i) );
+            listaPagos.get(i).calcularPago();
+            suma = suma + listaPagos.get(i).obtenerPago();
+            cadena= String.format("%s\n", listaPagos.get(i).obtenerPago() );
             
         }
         

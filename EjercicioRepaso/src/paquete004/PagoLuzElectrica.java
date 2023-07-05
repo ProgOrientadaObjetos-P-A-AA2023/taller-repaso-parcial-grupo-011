@@ -28,9 +28,7 @@ public class PagoLuzElectrica extends Pago {
 
         
     }
-    public double obtenerPago() {
-        return pago;
-    }
+   
     
     @Override
     public String toString() {

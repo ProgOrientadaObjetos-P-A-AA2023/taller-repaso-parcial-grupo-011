@@ -16,9 +16,9 @@ import paquete003.Pago;
  */
 public class Principal {
     public static void main(String[] args) {
-        ArrayList<Pago> listaPagos = new ArrayList<> ;
         
-        
+        ArrayList<Pago> listaPagos = new ArrayList<>() ;
+         
         
         
         

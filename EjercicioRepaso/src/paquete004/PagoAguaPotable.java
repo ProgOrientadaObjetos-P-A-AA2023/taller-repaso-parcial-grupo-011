@@ -38,9 +38,7 @@ public class PagoAguaPotable extends Pago {
 
     }
 
-    public double obtenerPago() {
-        return pago;
-    }
+    
 
     @Override
     public String toString() {

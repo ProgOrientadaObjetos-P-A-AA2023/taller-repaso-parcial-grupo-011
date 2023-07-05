@@ -24,9 +24,7 @@ public class PagoTelefonoConvencional extends Pago {
         
     }
 
-    public double obtenerPago() {
-        return pago;
-    }
+   
     
     
     
