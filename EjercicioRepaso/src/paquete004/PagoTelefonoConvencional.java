@@ -5,12 +5,13 @@
 package paquete004;
 
 import paquete001.Persona;
+import paquete003.BilleteraPagos;
 
 /**
  *
  * @author reroes
  */
-public class PagoTelefonoConvencional {
+public class PagoTelefonoConvencional extends BilleteraPagos {
     
     public double calcularPago(){
         double tarifa = 6.20;

@@ -5,14 +5,19 @@
 package paquete004;
 
 import paquete001.Persona;
+import paquete003.BilleteraPagos;
 
 /**
  *
  * @author reroes
  */
-public class PagoAguaPotable {
-    public double calcularPago(String tipo){
-        double pago = 0;
+public class PagoAguaPotable extends BilleteraPagos{
+    
+    
+
+   
+    public void calcularPago(String tipo) {
+         double pago = 0;
         if(tipo.equals("comercial")){
             double tarifaFija = 2.20;
             double metrosCubicosConsumo = 100.2;
@@ -25,6 +30,6 @@ public class PagoAguaPotable {
             pago = tarifaFija + (metrosCubicosConsumo * costoConsumoCubicos);
         }
         
-        return pago;
+        
     }
 }

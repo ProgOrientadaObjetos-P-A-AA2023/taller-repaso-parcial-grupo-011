@@ -5,12 +5,13 @@
 package paquete004;
 
 import paquete001.Persona;
+import paquete003.BilleteraPagos;
 
 /**
  *
  * @author reroes
  */
-public class PagoLuzElectrica {
+public class PagoLuzElectrica extends BilleteraPagos {
 
     public double calcularPago() {
         double pago = 0;

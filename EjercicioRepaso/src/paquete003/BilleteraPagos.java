@@ -14,7 +14,7 @@ import paquete004.PagoTelefonoConvencional;
  *
  * @author reroes
  */
-public class BilleteraPagos {
+public abstract class BilleteraPagos {
     public Persona persona;
     public double gastoPagos;
     public String mes;
@@ -27,6 +27,10 @@ public class BilleteraPagos {
     public PagoTelefonoConvencional telefonoCasa;
     public PagoTelefonoConvencional telefonoFinca;
     
+    public abstract void calcularPago();
+    
+    
+    @Override
     public String toString(){
         /*
             Se debe presentar el reporte que incluya

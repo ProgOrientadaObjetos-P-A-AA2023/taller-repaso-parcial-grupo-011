@@ -6,12 +6,14 @@ package paquete004;
 
 import paquete001.Persona;
 import paquete002.Propiedad;
+import paquete003.BilleteraPagos;
 
 /**
  *
  * @author reroes
  */
-public class PagoPredial {
+public class PagoPredial extends BilleteraPagos {
+    
     public double calcularPago(){
         double valorPropiedad = 56000;
         double porcentaje = 10;
