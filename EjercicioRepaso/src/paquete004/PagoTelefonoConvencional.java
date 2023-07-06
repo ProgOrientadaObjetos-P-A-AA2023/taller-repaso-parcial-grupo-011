@@ -12,32 +12,60 @@ import paquete003.Pago;
  * @author reroes
  */
 public class PagoTelefonoConvencional extends Pago {
-    
-    
-    
-    @Override
-    public void calcularPago(){
-        double tarifa = 6.20;
-        double minutosConsumidos = 100;
-        double costoMinuto = 0.2;
-        pago = tarifa + (minutosConsumidos * costoMinuto);
-        
+ private double tarifa;
+    private double minutosConsumidos;
+    private double costoMinuto;
+
+    public PagoTelefonoConvencional(double t, double m, double c) {
+        tarifa = t;
+        minutosConsumidos = m;
+        costoMinuto = c;
     }
 
-   
-    
-    
-    
-  
-     @Override
+    public void establecerTarifa(double t) {
+        tarifa = t;
+    }
+
+    public void establecerMinutosConsumidos(double m) {
+        minutosConsumidos = m;
+    }
+
+    public void establecerCostoMinuto(double c) {
+        costoMinuto = c;
+    }
+
+    @Override
+    public void calcularPago() {
+
+        pago = tarifa + (minutosConsumidos * costoMinuto);
+    }
+
+    public double obtenerTarifa() {
+        return tarifa;
+    }
+
+    public double obtenerMinutosConsumidos() {
+        return minutosConsumidos;
+    }
+
+    public double obtenerCostoMinuto() {
+        return costoMinuto;
+    }
+
+    @Override
     public String toString() {
 
-        String mensaje = String.format("\tTelefono Convencional\n"
-                + "Pago Telefono Convencional: %.2f\n", 
-                obtenerPago());
+        String mensaje = String.format("Pago telefono convencional:\n"
+                + "Tarifa: %.2f\n"
+                + "Minutos consumidos: %.2f\n"
+                + "Costo minutos: %.2f\n"
+                + "Pago: %.2f\n\n",
+                tarifa,
+                minutosConsumidos,
+                costoMinuto,
+                pago);
 
         return mensaje;
-        
     }
-    
 }
+

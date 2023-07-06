@@ -8,49 +8,87 @@ import java.util.ArrayList;
 import paquete001.Persona;
 import paquete002.Ciudad;
 
-
 /**
  *
  * @author reroes
  */
-public  class BilleteraPagos {
-    public Persona persona;
-   public Ciudad ciudad;
-   public ArrayList<Pago> listaPagos;
+public class BilleteraPagos {
 
-    public BilleteraPagos(Persona p, Ciudad c, ArrayList<Pago> lP) {
+    private Persona persona;
+    private double gastoPagos;
+    private String mes;
+    private ArrayList<Pago> lista;
+
+    public BilleteraPagos(Persona p, String m, ArrayList<Pago> l) {
         persona = p;
-        ciudad = c;
-        listaPagos = lP;
+        mes = m;
+        lista = l;
     }
-    
-    
-    
-    @Override
-    public String toString(){
-        /*
-            Se debe presentar el reporte que incluya
-            información correspondiente oportuna
-        */
-        
-        String cadena = String.format("\tBilletera de Pagos\n"
-                + "Usuario: %s\n"
-                + "Ciudad: %s\n"
-                +"Lista de pagos: \n", 
-                persona,
-                ciudad);
-        double suma=0;
-        
-        for (int i = 0; i < listaPagos.size(); i++) {
-            listaPagos.get(i).calcularPago();
-            suma = suma + listaPagos.get(i).obtenerPago();
-            cadena= String.format("%s\n", listaPagos.get(i).obtenerPago() );
-            
+
+    public void establecerPersona(Persona p) {
+        this.persona = p;
+    }
+
+    public void calcularGastoPagos() {
+
+        double suma = 0;
+        for (Pago lista1 : lista) {
+            suma = suma + lista1.obtenerPago();
         }
-        
-        
-        
-        return cadena;
+        gastoPagos = suma;
     }
-    
+
+    public void establecerMes(String m) {
+        this.mes = m;
+    }
+
+    public void establecerLista(ArrayList<Pago> l) {
+        this.lista = l;
+    }
+
+    public Persona obtenerPersona() {
+        return persona;
+    }
+
+    public double obtenerGastoPagos() {
+        return gastoPagos;
+    }
+
+    public String obtenerMes() {
+        return mes;
+    }
+
+    public ArrayList<Pago> obtenerLista() {
+        return lista;
+    }
+
+    @Override
+    public String toString() {
+
+        String mensaje = String.format("Persona:\n"
+                + "Nombre: %s\n"
+                + "Apellido: %s\n"
+                + "Edad: %d\n"
+                + "Cedula: %s\n"
+                + "Ciudad: %s\n"
+                + "Mes: %s\n\n",
+                persona.obtenerNombre(),
+                persona.obtenerApellido(),
+                persona.obtenerEdad(),
+                persona.obtenerCedula(),
+                persona.obtenerCiudad().obtenerNombreCiudad(),
+                mes);
+
+        for (Pago lista1 : lista) {
+            mensaje = String.format("%s%s\n", mensaje, lista1);
+        }
+
+        mensaje = String.format("%s\n"
+                + "El gosto total es: %.2f\n\n",
+                mensaje,
+                gastoPagos);
+
+        return mensaje;
+    }
+
 }

@@ -11,59 +11,65 @@ import paquete002.Ciudad;
  * @author reroes
  */
 public class Persona {
-    public String nombre;
-    public String apellido;
-    public int edad;
-    public String cedula;
-    public Ciudad ciudad;
+    private String nombre;
+    private String apellido;
+    private int edad;
+    private String cedula;
+    private Ciudad ciudad;
 
     public Persona(String n, String a, int e, String c, Ciudad ci) {
-        nombre = n;
-        apellido = a;
-        edad = e;
-        cedula = c;
-        ciudad = ci;
-    }
-
-    public String obtenerNombre() {
-        return nombre;
+        this.nombre = n;
+        this.apellido = a;
+        this.edad = e;
+        this.cedula = c;
+        this.ciudad = ci;
     }
 
     public void establecerNombre(String n) {
         nombre = n;
     }
 
-    public String obtenerApellido() {
-        return apellido;
-    }
-
     public void establecerApellido(String a) {
         apellido = a;
-    }
-
-    public int obtenerEdad() {
-        return edad;
     }
 
     public void establecerEdad(int e) {
         edad = e;
     }
 
-    public String obtenerCedula() {
-        return cedula;
-    }
-
     public void establecerCedula(String c) {
         cedula = c;
+    }
+
+    public void establecerCiudad(Ciudad c) {
+        ciudad = c;
+    }
+
+    public String obtenerNombre() {
+        return nombre;
+    }
+
+    public String obtenerApellido() {
+        return apellido;
+    }
+
+    public int obtenerEdad() {
+        return edad;
+    }
+
+    public String obtenerCedula() {
+        return cedula;
     }
 
     public Ciudad obtenerCiudad() {
         return ciudad;
     }
-
-    public void establecerCiudad(Ciudad ci) {
-        ciudad = ci;
-    }
+    
+    
+    
+    
+    
+    
     
     
 }

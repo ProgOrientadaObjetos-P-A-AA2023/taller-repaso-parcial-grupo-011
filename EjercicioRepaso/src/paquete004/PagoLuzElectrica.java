@@ -6,6 +6,7 @@ package paquete004;
 
 import paquete001.Persona;
 import paquete003.Pago;
+import paquete002.Ciudad;
 
 /**
  *
@@ -13,31 +14,81 @@ import paquete003.Pago;
  */
 public class PagoLuzElectrica extends Pago {
 
-    
+    private double tarifaBase;
+    private double kilovatiosConsumidos;
+    private double costoKilovatio;
+    private Ciudad ciudad;
+
+    public PagoLuzElectrica(double tB, double kC, double cK, Ciudad c) {
+
+        tarifaBase = tB;
+        kilovatiosConsumidos = kC;
+        costoKilovatio = cK;
+        ciudad = c;
+
+    }
+
+    public void establecerTarifaBase(double tarifaBase) {
+        this.tarifaBase = tarifaBase;
+    }
+
+    public void establecervKilovatiosConsumidos(double kilovatiosConsumidos) {
+        this.kilovatiosConsumidos = kilovatiosConsumidos;
+    }
+
+    public void establecerCostoKilovatio(double costoKilovatio) {
+        this.costoKilovatio = costoKilovatio;
+    }
+
+    public void establecerCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
     @Override
+
     public void calcularPago() {
-        double tarifaBase = 10.20;
-        double kilovatiosConsumidos = 80;
-        double costoKilovatio = 0.5;
-        String ciudad = "Loja";
-        if (ciudad.equals("Loja")) {
+
+        if (ciudad.obtenerNombreCiudad().equals("Loja")) {
             pago = tarifaBase + (kilovatiosConsumidos * costoKilovatio / 2);
         } else {
+
             pago = tarifaBase + (kilovatiosConsumidos * costoKilovatio);
         }
 
-        
     }
-   
-    
+
+    public double obtenerTarifaBase() {
+        return tarifaBase;
+    }
+
+    public double obtenerKilovatiosConsumidos() {
+        return kilovatiosConsumidos;
+    }
+
+    public double obtenerCostoKilovatio() {
+        return costoKilovatio;
+    }
+
+    public Ciudad obtenerCiudad() {
+        return ciudad;
+    }
+
     @Override
     public String toString() {
 
-        String mensaje = String.format("\tLuz Electrica\n"
-                + "Pago LuzElectrica: %.2f\n", 
-                obtenerPago());
+        String mensaje = String.format("Pago luz electrica:\n"
+                + "Tarifa base: %.2f\n"
+                + "Consumo kilovatios: %.2f\n"
+                + "Costo kilovatios: %.2f\n"
+                + "Ciudad: %s\n\n"
+                + "Pago: %.2f\n\n",
+                tarifaBase,
+                kilovatiosConsumidos,
+                costoKilovatio,
+                ciudad.obtenerNombreCiudad(),
+                pago);
 
         return mensaje;
-        
     }
+
 }

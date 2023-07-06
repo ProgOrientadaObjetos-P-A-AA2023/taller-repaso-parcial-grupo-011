@@ -4,7 +4,6 @@
  */
 package paquete004;
 
-import paquete001.Persona;
 import paquete003.Pago;
 
 /**
@@ -13,23 +12,41 @@ import paquete003.Pago;
  */
 public class PagoAguaPotable extends Pago {
 
-    private String tipoPagoAguaPotable;
     private double tarifaFija;
     private double metrosCubicosConsumo;
-    private double costoConsumoCubicos ;
+    private double costoConsumoCubicos;
+    private String tipo;
 
-    public void setTipoPagoAguaPotable(String tP) {
-        tipoPagoAguaPotable = tP;
+    public PagoAguaPotable(double t, double m, double c, String a) {
+
+        tarifaFija = t;
+        metrosCubicosConsumo = m;
+        costoConsumoCubicos = c;
+        tipo = a;
+
     }
 
-    public String getTipoPagoAguaPotable() {
-        return tipoPagoAguaPotable;
+    public void establecerTarifaFija(double tarifaFija) {
+        this.tarifaFija = tarifaFija;
+    }
+
+    public void establecerMetrosCubicosConsumo(double metrosCubicosConsumo) {
+        this.metrosCubicosConsumo = metrosCubicosConsumo;
+    }
+
+    public void establecerCostoConsumoCubicos(double costoConsumoCubicos) {
+        this.costoConsumoCubicos = costoConsumoCubicos;
+    }
+
+    public void establecerTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
     public void calcularPago() {
 
-        if (tipoPagoAguaPotable.equals("comercial")) {
+        if (tipo.equals("comercial")) {
+
             pago = tarifaFija + (metrosCubicosConsumo * costoConsumoCubicos) + 15;
         } else {
 
@@ -38,17 +55,41 @@ public class PagoAguaPotable extends Pago {
 
     }
 
-    
+    public double obtenerTarifaFija() {
+        return tarifaFija;
+    }
+
+    public double obtenerMetrosCubicosConsumo() {
+        return metrosCubicosConsumo;
+    }
+
+    public double obtenerCostoConsumoCubicos() {
+        return costoConsumoCubicos;
+    }
+
+    public String obtenerTipo() {
+        return tipo;
+    }
 
     @Override
     public String toString() {
 
-        String mensaje = String.format("\tAgua Potable\n"
+        String mensaje = String.format("Pago agua potable:\n"
+                + "Tarifa fija: %.2f\n"
+                + "Consumo metros cubicos: %.2f\n"
+                + "Costo metros cubicos: %.2f\n"
                 + "Tipo: %s\n"
-                + "Pago Agua Potable: %.2f\n"
-                + "", getTipoPagoAguaPotable(), obtenerPago());
+                + "Pago: %.2f\n\n", 
+                tarifaFija, 
+                metrosCubicosConsumo, 
+                costoConsumoCubicos, 
+                tipo,
+                pago);
+        
 
         return mensaje;
-
     }
+    
 }
+
+

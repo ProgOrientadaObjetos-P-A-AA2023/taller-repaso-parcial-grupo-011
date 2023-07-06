@@ -9,17 +9,21 @@ package paquete002;
  * @author reroes
  */
 public class Ciudad {
-   private String nombreCiudad;
+
+
+    private String nombreCiudad;
+
+    public Ciudad(String c) {
+
+        nombreCiudad = c;
+    }
+
+    public void establecerNombreCiudad(String n) {
+        nombreCiudad = n;
+    }
 
     public String obtenerNombreCiudad() {
         return nombreCiudad;
     }
 
-    public void establecerNombreCiudad(String c) {
-        nombreCiudad = c;
-    }
-
-    public Ciudad(String c) {
-       nombreCiudad= c;
-    }
 }
